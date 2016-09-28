@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+    <span>Здравствуйте, <%= current_user.email %></span>
+    <%= link_to 'Выйти', destroy_user_session_path %>
+<% else %>
+    <%= link_to 'Войти', new_user_session_path %> либо <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Имя:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Цена:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Описание:</strong>
+  <%= @product.description %>
+</p>
+
+<%= link_to 'Редактировать', edit_product_path(@product) %> |
+<%= link_to 'Назад', products_path %>

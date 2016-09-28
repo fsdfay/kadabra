@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+    <span>Здравствуйте, <%= current_user.email %></span>
+    <%= link_to 'Выйти', destroy_user_session_path %>
+<% else %>
+    <%= link_to 'Войти', new_user_session_path %> либо <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+<% end %>
+<h1>Изменить продукт</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Показать', @product %> |
+<%= link_to 'Назад', products_path %>
